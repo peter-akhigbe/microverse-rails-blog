@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <div>
+    <img src="<%= user.photo %>" alt="<%= user.name %>">
+    <p><%= user.name %></p>
+    <p>Number of post: <%= user.posts_counter %></p>
+  </div>
+<% end %>

@@ -36,3 +36,5 @@
 
 # Node modules
 node_modules/
+
+.fleet/
