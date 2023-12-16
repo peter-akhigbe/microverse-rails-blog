@@ -1,0 +1,13 @@
+<div class="comments_container">
+  <% post.comments.each do |comment| %>
+    <p><%= comment.user.name %>: <%= comment.text %></p>
+  <% end %>
+</div>
+
+<style>
+    .comments_container {
+        width: 440px;
+        padding: 10px;
+        border: 2px solid black;
+    }
+</style>
