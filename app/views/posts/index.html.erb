@@ -1,8 +1,23 @@
-<h1>All Posts by <%= @user.name %></h1>
+<div class="page">
+  <%= render partial: "shared/info_container", locals: { user: @user } %>
+  <% @posts.each do |post| %>
+    <div class="post-container">
+      <%= render partial: "shared/post_container", locals: { post: post } %>
+      <%= render partial: "shared/comment_container", locals: { post: post } %>
+    </div>
+  <% end %>
+</div>
 
-<% @posts.each do |post| %>
-  <div>
-    <p><%= post.title %></p>
-    <p><%= post.text %></p>
-  </div>
-<% end %>
+<style>
+    .page {
+        display: grid;
+        place-items: center;
+    }
+
+    .post-container {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+</style>

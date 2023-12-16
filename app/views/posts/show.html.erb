@@ -1,1 +1,34 @@
-<h1>Title: <%= @post.title %> -- Author: <%= @user.name %></h1>
+<!--<h1>Title: <%#= @post.title %> -- Author: <%#= @user.name %></h1>-->
+
+<div class="page">
+  <div class="post-container">
+    <div class="name-and-counter">
+      <p>Post #<%= @post.id %> by <%= @user.name %></p>
+      <p>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
+    </div>
+    <p><%= @post.text %></p>
+  </div>
+  <%= render partial: "shared/comment_container", locals: { post: @post } %>
+</div>
+
+<style>
+    .page {
+        display: grid;
+        place-items: center;
+    }
+
+    .post-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 440px;
+        padding: 10px;
+        border: 2px solid black;
+        margin: 2px;
+    }
+
+    .name-and-counter {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>

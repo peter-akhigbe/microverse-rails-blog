@@ -1,0 +1,25 @@
+<div class="posts_container">
+  <p class="post-count">Post #<%= post.id %></p>
+  <p class="post-text"><%= post.text %></p>
+  <div class="counter">
+    <p>Comments: <%= post.comments_counter %></p>
+    <p>Likes: <%= post.likes_counter %></p>
+  </div>
+</div>
+
+<style>
+    .posts_container {
+        width: 440px;
+        padding: 10px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .counter {
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+    }
+</style>

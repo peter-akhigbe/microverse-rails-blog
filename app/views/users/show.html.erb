@@ -1,5 +1,5 @@
 <div class="page">
-  <%= render partial: "users/shared/info_container", locals: { user: @user } %>
+  <%= render partial: "shared/info_container", locals: { user: @user } %>
 
   <div class="bio-container">
     <p class="bio">Bio</p>
@@ -7,13 +7,8 @@
   </div>
 
   <% @user.posts.each do |post| %>
-    <div class="posts_container">
-      <p class="post-count">Post #<%= post.id %></p>
-      <p class="post-text"><%= post.text %></p>
-      <div class="counter">
-        <p>Comments: <%= post.comments_counter %></p>
-        <p>Likes: <%= post.likes_counter %></p>
-      </div>
+    <div class="post-partial">
+      <%= render partial: "shared/post_container", locals: { post: post } %>
     </div>
   <% end %>
 </div>
@@ -25,23 +20,17 @@
         place-items: center;
     }
 
-    .bio-container,
-    .posts_container {
+    .bio-container {
         width: 440px;
         padding: 10px;
         border: 2px solid black;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        margin: 10px;
     }
 
-    .posts_container {
-        margin: 20px;
-    }
-
-    .counter {
-        display: flex;
-        gap: 10px;
-        margin-left: auto;
+    .post-partial {
+        margin: 10px;
     }
 </style>
