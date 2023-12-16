@@ -1,9 +1,12 @@
-<h1>Home</h1>
+<div class="page">
+  <% @users.each do |user| %>
+    <%= render partial: "users/shared/info_container", locals: { user: user } %>
+  <% end %>
+</div>
 
-<% @users.each do |user| %>
-  <div>
-    <img src="<%= user.photo %>" alt="<%= user.name %>">
-    <p><%= user.name %></p>
-    <p>Number of post: <%= user.posts_counter %></p>
-  </div>
-<% end %>
+<style>
+    .page {
+        display: grid;
+        place-items: center;
+    }
+</style>

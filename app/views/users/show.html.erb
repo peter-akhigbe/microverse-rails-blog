@@ -1,11 +1,47 @@
-<div>
-  <img src="<%= @user.photo %>" alt="<%= @user.name %>">
-  <p><%= @user.name %></p>
-  <p>Number of post: <%= @user.posts_counter %></p>
-  <p>Bio</p>
-  <p><%= @user.bio %></p>
+<div class="page">
+  <%= render partial: "users/shared/info_container", locals: { user: @user } %>
+
+  <div class="bio-container">
+    <p class="bio">Bio</p>
+    <p class="bio-text"><%= @user.bio %></p>
+  </div>
 
   <% @user.posts.each do |post| %>
-    <p><%= post.text %></p>
+    <div class="posts_container">
+      <p class="post-count">Post #<%= post.id %></p>
+      <p class="post-text"><%= post.text %></p>
+      <div class="counter">
+        <p>Comments: <%= post.comments_counter %></p>
+        <p>Likes: <%= post.likes_counter %></p>
+      </div>
+    </div>
   <% end %>
 </div>
+
+
+<style>
+    .page {
+        display: grid;
+        place-items: center;
+    }
+
+    .bio-container,
+    .posts_container {
+        width: 440px;
+        padding: 10px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .posts_container {
+        margin: 20px;
+    }
+
+    .counter {
+        display: flex;
+        gap: 10px;
+        margin-left: auto;
+    }
+</style>
