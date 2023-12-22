@@ -1,10 +1,21 @@
+<!--<div class="user-container">-->
+<!--  <img class="dp" src="<%#= user.photo %>" alt="<%#= user.name %>">-->
+<!--  <div class="info-card">-->
+<!--    <p class="name"><%#= user.name %></p>-->
+<!--    <p class="post-counter">Number of post: <%#= user.posts_counter %></p>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="user-container">
   <img class="dp" src="<%= user.photo %>" alt="<%= user.name %>">
   <div class="info-card">
-    <p class="name"><%= user.name %></p>
+    <%= link_to user_path(user) do %>
+      <p class="name"><%= user.name %></p>
+    <% end %>
     <p class="post-counter">Number of post: <%= user.posts_counter %></p>
   </div>
 </div>
+
 
 <style>
     .user-container {
