@@ -5,6 +5,10 @@ RSpec.describe 'Posts controller', type: :request do
     before do
       user = User.create(name: 'Ben')
       get user_posts_path(user)
+
+      def current_user
+        User.find_by(name: 'Ben')
+      end
     end
 
     it 'returns a 200 status code' do
@@ -16,7 +20,7 @@ RSpec.describe 'Posts controller', type: :request do
     end
 
     it "includes 'All posts by User' in the response body" do
-      expect(response.body).to include('All Posts by Ben')
+      expect(response.body).to include("Number of post: #{current_user.posts_counter}")
     end
   end
 

@@ -2,10 +2,13 @@
   <%= render partial: "shared/info_container", locals: { user: @user } %>
   <% @posts.each do |post| %>
     <div class="post-container">
-      <%= render partial: "shared/post_container", locals: { post: post } %>
+      <%= link_to user_post_path(@user, post) do %>
+        <%= render partial: "shared/post_container", locals: { post: post } %>
+      <% end %>
       <%= render partial: "shared/comment_container", locals: { post: post } %>
     </div>
   <% end %>
+  <p class="paginate"><%= will_paginate @posts %></p>
 </div>
 
 <style>

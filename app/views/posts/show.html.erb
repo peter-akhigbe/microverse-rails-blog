@@ -1,18 +1,18 @@
 <div class="page">
   <div class="post-container">
     <div class="name-and-counter">
-      <p>Post #<%= @post.id %> by <%= @user.name %></p>
+      <p>Title: <%= @post.title %> -- by <%= @user.name %></p>
       <p>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
     </div>
     <p><%= @post.text %></p>
   </div>
-  <div class="">
+  <%= render partial: "shared/comment_container", locals: { post: @post } %>
+  <div class="like-and-comment">
     <%= link_to "Add Comment", new_user_post_comment_path(@user, @post) %>
     <%= form_with url: user_post_likes_path(@post.author.id, @post.id) do |form| %>
       <%= form.submit 'Like' %>
     <% end %>
   </div>
-  <%= render partial: "shared/comment_container", locals: { post: @post } %>
 </div>
 
 <style>
@@ -34,5 +34,11 @@
     .name-and-counter {
         display: flex;
         justify-content: space-between;
+    }
+
+    .like-and-comment {
+        display: flex;
+        gap: 10px;
+        margin: 10px;
     }
 </style>

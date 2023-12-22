@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     before do
+      user = User.create(name: 'Tom')
+      user.posts.create(title: 'test post', text: 'test post body')
       get users_path
     end
 
@@ -15,7 +17,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'includes the correct placeholder text' do
-      expect(response.body).to include('Home')
+      expect(response.body).to include('Tom')
     end
   end
 

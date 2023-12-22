@@ -21,10 +21,14 @@
   text-decoration: none;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: auto;
   background-color: #333;
   color: white;
   text-align: center;
