@@ -34,9 +34,10 @@ RSpec.describe 'posts', type: :feature do
       expect(page).to have_content('three: post text')
       expect(page).to have_content('comment one')
       expect(page).to have_content('Likes: 0')
+      expect(page).to have_content('Comments: 6')
     end
 
-    it 'display latest only the first 5 posts' do
+    it 'displays only the first 5 posts (pagination)' do
       expect(page).not_to have_content('Post One')
     end
 

@@ -47,5 +47,17 @@ RSpec.describe 'User', type: :feature do
 
       expect(current_path).to eq(users_path)
     end
+
+    it 'should dipslay user\'s first 3 posts' do
+      user.posts.create(title: 'Post #1', text: 'This is the first post')
+      user.posts.create(title: 'Post #2', text: 'This is the second post')
+      user.posts.create(title: 'Post #3', text: 'This is the third post')
+
+      visit user_path(user)
+
+      expect(page).to have_content('Post #1')
+      expect(page).to have_content('Post #2')
+      expect(page).to have_content('Post #3')
+    end
   end
 end
