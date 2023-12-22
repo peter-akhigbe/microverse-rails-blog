@@ -6,13 +6,13 @@
     </div>
     <p><%= @post.text %></p>
   </div>
-  <div class="">
+  <%= render partial: "shared/comment_container", locals: { post: @post } %>
+  <div class="like-and-comment">
     <%= link_to "Add Comment", new_user_post_comment_path(@user, @post) %>
     <%= form_with url: user_post_likes_path(@post.author.id, @post.id) do |form| %>
       <%= form.submit 'Like' %>
     <% end %>
   </div>
-  <%= render partial: "shared/comment_container", locals: { post: @post } %>
 </div>
 
 <style>
@@ -34,5 +34,11 @@
     .name-and-counter {
         display: flex;
         justify-content: space-between;
+    }
+
+    .like-and-comment {
+        display: flex;
+        gap: 10px;
+        margin: 10px;
     }
 </style>
