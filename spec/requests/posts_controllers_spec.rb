@@ -7,7 +7,7 @@ RSpec.describe 'Posts controller', type: :request do
       get user_posts_path(user)
 
       def current_user
-        user = User.find_by(name: 'Ben')
+        User.find_by(name: 'Ben')
       end
     end
 

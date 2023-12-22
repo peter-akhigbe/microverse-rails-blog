@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     before do
       user = User.create(name: 'Tom')
-      post = user.posts.create(title: 'test post', text: 'test post body')
+      user.posts.create(title: 'test post', text: 'test post body')
       get users_path
     end
 
