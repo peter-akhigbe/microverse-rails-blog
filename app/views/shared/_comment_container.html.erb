@@ -2,7 +2,7 @@
   <p class="title">
     <%= post.comments.any? ? 'Comments: ' : 'No comments' %>
   </p>
-  <% post.comments.each do |comment| %>
+  <% post.comments.each_with_index do |comment, index| %>
     <p><%= comment.user.name %>: <%= comment.text %></p>
   <% end %>
 </div>

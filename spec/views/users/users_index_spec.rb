@@ -36,5 +36,10 @@ RSpec.describe 'users', type: :feature do
       click_link(@user3.name)
       expect(current_path).to eq(user_path(@user3))
     end
+
+    after(:all) do
+      @user1.destroy if @user1.present?
+      @user2.destroy if @user2.present?
+    end
   end
 end

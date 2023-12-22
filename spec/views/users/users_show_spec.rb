@@ -38,7 +38,6 @@ RSpec.describe 'User', type: :feature do
       visit user_path(user)
       click_link post.title
 
-      sleep 10
       expect(current_path).to eq(user_post_path(user, post))
     end
 
@@ -46,7 +45,6 @@ RSpec.describe 'User', type: :feature do
       visit user_path(user)
       click_link('See all posts')
 
-      sleep(10)
       expect(current_path).to eq(users_path)
     end
   end
