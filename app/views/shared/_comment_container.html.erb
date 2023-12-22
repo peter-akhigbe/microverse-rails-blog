@@ -1,5 +1,7 @@
 <div class="comments_container">
-  <p class="title">Comments:</p>
+  <p class="title">
+    <%= post.comments.any? ? 'Comments: ' : 'No comments' %>
+  </p>
   <% post.comments.each do |comment| %>
     <p><%= comment.user.name %>: <%= comment.text %></p>
   <% end %>

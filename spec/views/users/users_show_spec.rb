@@ -32,14 +32,6 @@ RSpec.describe 'User', type: :feature do
       expect(page).to have_content('See all posts')
     end
 
-    # it 'it redirects me to that post\'s show page' do
-    #   visit user_path(user)
-    #   click_link('Post #1')
-
-    #   sleep(10)
-    #   expect(current_path).to eq(users_path)
-    # end
-
     it 'redirects to the specific post when the user clicks on it' do
       post = user.posts.create(title: 'Post #1', text: 'This is the first post')
 

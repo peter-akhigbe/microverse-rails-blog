@@ -1,7 +1,7 @@
 <div class="page">
   <div class="post-container">
     <div class="name-and-counter">
-      <p>Post #<%= @post.id %> by <%= @user.name %></p>
+      <p>Title: <%= @post.title %> -- by <%= @user.name %></p>
       <p>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></p>
     </div>
     <p><%= @post.text %></p>
