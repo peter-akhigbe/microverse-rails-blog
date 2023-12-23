@@ -309,7 +309,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  devise (~> 4.9)
+  devise
   factory_bot_rails
   importmap-rails
   jbuilder

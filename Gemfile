@@ -70,6 +70,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'devise'
 gem 'will_paginate', '~> 4.0'
-
-gem 'devise', '~> 4.9'
