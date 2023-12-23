@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource # except: %i[index show]
   before_action :set_user, only: %i[index show new create]
 
   def index
@@ -27,6 +28,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+
+    if @post.destroy
+      redirect_to user_posts_path(@user)
+      update_user_posts_counter
+    else
+      alert 'Error'
+    end
+  end
+
   private
 
   def set_user
@@ -35,5 +48,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+  end
+
+  def update_user_posts_counter
+    @post.author.update(posts_counter: @post.author.posts.count)
   end
 end
