@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
+  alias_attribute :author, :user
 
   after_save :update_post_comments_counter
 

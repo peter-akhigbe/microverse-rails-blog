@@ -2,8 +2,12 @@
   <p class="title">
     <%= post.comments.any? ? 'Comments: ' : 'No comments' %>
   </p>
-  <% post.comments.each_with_index do |comment, index| %>
+  <% post.comments.each do |comment| %>
     <p><%= comment.user.name %>: <%= comment.text %></p>
+
+    <% if can?(:destroy, comment) %>
+      <%= button_to 'Delete Comment', user_post_comment_path(user, post, comment), method: :delete %>
+    <% end %>
   <% end %>
 </div>
 
